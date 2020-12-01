@@ -11,9 +11,9 @@ const config = {
   },
   resolve: {
     alias: {
-      "@": path.resolve("../src"),
-      "@img": path.resolve("../src/assets/img"),
-      "@components": path.resolve("../src/components"),
+      "@": path.resolve(__dirname, "./src"),
+      "@img": path.resolve(__dirname, "./src/assets/img"),
+      "@components": path.resolve(__dirname, "./src/components"),
     },
   },
   module: {
@@ -25,7 +25,7 @@ const config = {
         exclude: /node_modules/,
       },
       {
-        test: /\.scss$/,
+        test: /\.(sa|c)ss$/,
         include: path.resolve(__dirname, "src"), // 只让loader解析我们src底下自己写的文件
         use: ["style-loader", "css-loader", "sass-loader"],
       },
@@ -64,9 +64,9 @@ const config = {
       inject: true,
     }),
   ],
-  optimization:{
+  optimization: {
     minimizer: [new UglifyJsPlugin()],
-  }
+  },
 }
 
 module.exports = function (env, argv) {
