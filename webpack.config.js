@@ -10,10 +10,13 @@ const config = {
     path: path.resolve(__dirname, "dist"),
   },
   resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./src"),
-      "@img": path.resolve(__dirname, "./src/assets/img"),
-      "@components": path.resolve(__dirname, "./src/components"),
+    resolve: {
+      extensions: ['.js', '.ts', '.tsx'],
+      alias: {
+        "@": path.resolve("src"),
+        "@img": path.join(__dirname, "src/assets/img"),
+        "@components": path.join(__dirname, "src/components"),
+      },
     },
   },
   module: {
